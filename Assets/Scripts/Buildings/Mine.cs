@@ -17,12 +17,6 @@ public class Mine : MonoBehaviour
         StartCoroutine(GenerateOre());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     IEnumerator GenerateOre()
     {
         while (true)
