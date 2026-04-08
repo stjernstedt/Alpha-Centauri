@@ -38,7 +38,6 @@
 }
 
 .button {
-    width: 80px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -46,6 +45,7 @@
     background-color: rgb(191, 223, 229);
     max-height: 30px;
     align-content: auto;
+    transition-duration: 250ms;
 }
 
 .button:hover {

@@ -1,18 +1,13 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ResourceManager : MonoBehaviour
 {
-    [SerializeField] public int ore = 0;
+    [SerializeField] int ore = 0;
     [SerializeField] int power = 0;
-
-    UIDocument uiDocument;
+    [SerializeField] int research = 0;
 
     void Start()
     {
-        uiDocument = FindAnyObjectByType<UIDocument>();
-        uiDocument.rootVisualElement.Q<IntegerField>("OreDisplay").dataSource = this;
-        uiDocument.rootVisualElement.Q<IntegerField>("PowerDisplay").dataSource = this;
 
     }
 
@@ -25,6 +20,11 @@ public class ResourceManager : MonoBehaviour
         power += amount;
     }
 
+    public void AddResearch(int amount)
+    {
+        research += amount;
+    }
+
     public int GetOre()
     {
         return ore;
@@ -33,5 +33,10 @@ public class ResourceManager : MonoBehaviour
     public int GetPower()
     {
         return power;
+    }
+
+    public int GetResearch()
+    {
+        return research;
     }
 }

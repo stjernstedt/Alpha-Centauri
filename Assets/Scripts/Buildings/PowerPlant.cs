@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PowerPlant : MonoBehaviour
+public class PowerPlant : MonoBehaviour, IProducer
 {
     ResourceManager resourceManager;
     public int PowerAmount = 10;
@@ -9,7 +9,7 @@ public class PowerPlant : MonoBehaviour
     void Start()
     {
         resourceManager = Managers.Instance.ResourceManager;
-        resourceManager.AddPower(PowerAmount);
+        Produce();
     }
 
     private void OnDestroy()
@@ -17,4 +17,8 @@ public class PowerPlant : MonoBehaviour
         resourceManager.AddPower(-PowerAmount);
     }
 
+    public void Produce()
+    {
+        resourceManager.AddPower(PowerAmount);
+    }
 }

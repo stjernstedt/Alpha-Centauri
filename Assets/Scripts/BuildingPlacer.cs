@@ -40,22 +40,29 @@ public class BuildingPlacer : MonoBehaviour
         }
         Vector3 mousePos = Mouse.current.position.ReadValue();
         buildingGhost = Instantiate(buildingPrefab, Camera.main.ScreenToWorldPoint(mousePos), Quaternion.identity);
-        buildingGhost.GetComponent<Renderer>().material.color = new Color(0, 0, 0.8f, 0.5f);
+        (buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = false;
+        Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
+        ghostColor.a = 0.5f;
+        buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
     }
 
     void UpdateGhostPosition()
     {
         if (buildingGhost != null)
         {
-            Vector3 mousePos = Mouse.current.position.ReadValue();
-            mousePos.z = 10f;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            Vector3Int gridPos = Vector3Int.RoundToInt(mousePos);
-            buildingGhost.transform.position = gridPos;
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                Vector3Int gridPos = Vector3Int.RoundToInt(hit.point);
+                buildingGhost.transform.position = gridPos;
+            }
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                buildingGhost.GetComponent<Renderer>().material.color = Color.white;
+                Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
+                ghostColor.a = 1f;
+                buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
+                (buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = true;
                 buildingGhost = null;
             }
         }

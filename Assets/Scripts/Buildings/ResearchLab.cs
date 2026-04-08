@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class Mine : MonoBehaviour, IProducer
+public class ResearchLab : MonoBehaviour, IProducer
 {
     ResourceManager resourceManager;
-    public int OreAmount = 1;
+    public int ResearchAmount = 1;
     public float Interval = 1f;
 
-    WaitForSeconds oreGenerationInterval;
+    WaitForSeconds researchGenerationInterval;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,18 +16,19 @@ public class Mine : MonoBehaviour, IProducer
         Produce();
     }
 
-    IEnumerator GenerateOre()
+    IEnumerator GenerateResearch()
     {
         while (true)
         {
-            yield return oreGenerationInterval;
-            resourceManager.AddOre(OreAmount);
+            yield return researchGenerationInterval;
+            resourceManager.AddOre(ResearchAmount);
         }
     }
 
     public void Produce()
     {
-        oreGenerationInterval = new WaitForSeconds(Interval);
-        StartCoroutine(GenerateOre());
+        researchGenerationInterval = new WaitForSeconds(Interval);
+        StartCoroutine(GenerateResearch());
     }
+
 }
