@@ -720,6 +720,7 @@ GameObject:
   - component: {fileID: 2043658326}
   - component: {fileID: 2043658327}
   - component: {fileID: 2043658328}
+  - component: {fileID: 2043658329}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -769,6 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldState
   ore: 0
   power: 0
+  research: 0
 --- !u!114 &2043658328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,6 +786,19 @@ MonoBehaviour:
   minePrefab: {fileID: 6159774114567907918, guid: 7d1b4e8ebb20fac45ac1bd201dc99e8a, type: 3}
   powerPlantPrefab: {fileID: 4721664633584247734, guid: c2ad10ab689fc27469182a0d2ec0d9fc, type: 3}
   researchLabPrefab: {fileID: 6159774114567907918, guid: 383908055abd461409556191b232c9c6, type: 3}
+--- !u!114 &2043658329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043658324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48dabf65a124740afc250618c6a205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResearchManager
+  techCardTemplate: {fileID: 9197481963319205126, guid: c0ab4d8094d22464ab00ebb04216e893, type: 3}
 --- !u!1001 &4685783401920661203
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,6 +26,9 @@ public class ButtonsMenuManager : MonoBehaviour
 
         Button powerPlantButton = uiDocument.rootVisualElement.Q<Button>("PowerPlantButton");
         powerPlantButton.clicked += () => FindAnyObjectByType<BuildingPlacer>().PlaceBuilding(BuildingType.PowerPlant);
+
+        Button researchLabButton = uiDocument.rootVisualElement.Q<Button>("ResearchLabButton");
+        researchLabButton.clicked += () => FindAnyObjectByType<BuildingPlacer>().PlaceBuilding(BuildingType.ResearchLab);
     }
 
     void OnBuildButtonClicked()

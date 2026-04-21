@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="TechCard" src="project://database/Assets/Scripts/UI/TechCard.uxml?fileID=9197481963319205126&amp;guid=c0ab4d8094d22464ab00ebb04216e893&amp;type=3#TechCard"/>
     <Style src="project://database/Assets/UI%20Toolkit/stylesheet.uss?fileID=7433441132597879392&amp;guid=29273a26b5503f34aadefdbae1444587&amp;type=3#stylesheet"/>
     <ui:VisualElement name="ButtonsPanel" class="panel" style="flex-grow: 1; position: absolute; height: 40px; width: 500px; top: auto; left: 25px; right: auto; bottom: 25px; background-color: rgb(101, 127, 217); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); align-content: auto; justify-content: center;">
         <ui:Button text="Build" name="BuildButton" class="button"/>
@@ -14,10 +15,20 @@
                 <ui:DataBinding property="value" data-source-path="power" binding-mode="ToTarget"/>
             </Bindings>
         </ui:IntegerField>
+        <ui:IntegerField label="Research" value="0" focusable="false" name="ResearchDisplay">
+            <Bindings>
+                <ui:DataBinding property="value" data-source-path="research" binding-mode="ToTarget"/>
+            </Bindings>
+        </ui:IntegerField>
     </ui:VisualElement>
     <ui:VisualElement name="BuildingButtonsPanel" enabled="true" class="panel" style="flex-grow: 1; position: absolute; height: 170px; width: 150px; top: auto; left: 27px; right: auto; bottom: 72px; background-color: rgb(101, 127, 217); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); align-content: auto; justify-content: center; transition-property: all; transition-duration: 250ms; transition-timing-function: ease; transition-delay: 0s; display: flex; visibility: visible; transform-origin: left bottom;">
         <ui:Button text="Mine" name="MineButton" class="button"/>
         <ui:Button text="Power Plant" name="PowerPlantButton" class="button"/>
         <ui:Button text="Research Lab" name="ResearchLabButton" class="button"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="ResearchPanel" class="panel" style="flex-grow: 1; position: relative; height: 80%; width: 80%; top: 10%; left: auto; right: auto; bottom: auto; max-height: 80%; max-width: 80%; min-width: auto; align-self: center; align-content: auto; justify-content: flex-start; align-items: stretch;">
+        <ui:VisualElement name="TechTree" class="panel" style="flex-grow: 1; width: 45%; height: auto; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgb(139, 157, 229); flex-direction: row; flex-wrap: wrap;">
+            <ui:Instance template="TechCard" name="TechCard"/>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

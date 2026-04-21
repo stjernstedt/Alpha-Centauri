@@ -40,7 +40,8 @@ public class BuildingPlacer : MonoBehaviour
         }
         Vector3 mousePos = Mouse.current.position.ReadValue();
         buildingGhost = Instantiate(buildingPrefab, Camera.main.ScreenToWorldPoint(mousePos), Quaternion.identity);
-        (buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = false;
+        //(buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = false;
+        if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = false;
         Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
         ghostColor.a = 0.5f;
         buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
@@ -62,7 +63,8 @@ public class BuildingPlacer : MonoBehaviour
                 Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
                 ghostColor.a = 1f;
                 buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
-                (buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = true;
+                if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = true;
+                //(buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = true;
                 buildingGhost = null;
             }
         }

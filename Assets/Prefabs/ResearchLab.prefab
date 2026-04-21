@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7843892858726524976}
   - component: {fileID: 2414090968009843683}
   - component: {fileID: 6848937681090391281}
-  - component: {fileID: 548371938003199476}
+  - component: {fileID: -2159288492876019872}
   m_Layer: 0
   m_Name: ResearchLab
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &548371938003199476
+--- !u!114 &-2159288492876019872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6159774114567907918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a832deb225273f541ba4a7ac73729256, type: 3}
+  m_Script: {fileID: 11500000, guid: e64aac029e9f19c46b626ca492ec0f48, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mine
-  OreAmount: 1
+  m_EditorClassIdentifier: Assembly-CSharp::ResearchLab
+  ResearchAmount: 1
   Interval: 1

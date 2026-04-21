@@ -1,0 +1,9 @@
+:root {
+}
+
+.NameCost > .unity-label {
+    min-width: 70%;
+}
+
+.NameCost > #unity-text-input {
+    max-width: 30%;
