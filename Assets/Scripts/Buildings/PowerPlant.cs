@@ -14,11 +14,11 @@ public class PowerPlant : MonoBehaviour, IProducer
 
     private void OnDestroy()
     {
-        resourceManager.AddPower(-PowerAmount);
+        resourceManager.power -= PowerAmount;
     }
 
     public void Produce()
     {
-        resourceManager.AddPower(PowerAmount);
+        resourceManager.power += PowerAmount;
     }
 }

@@ -21,7 +21,7 @@ public class ResearchLab : MonoBehaviour, IProducer
         while (true)
         {
             yield return researchGenerationInterval;
-            resourceManager.AddResearch(ResearchAmount);
+            resourceManager.research += ResearchAmount;
         }
     }
 

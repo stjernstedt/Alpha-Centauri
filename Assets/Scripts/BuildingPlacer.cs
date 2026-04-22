@@ -20,7 +20,6 @@ public class BuildingPlacer : MonoBehaviour
         UpdateGhostPosition();
     }
 
-    //TODO rebuild UI using UI Toolkit and use events to trigger this method instead of calling it directly from the UI button(can't call it directly from the button because of the enum parameter)
     public void PlaceBuilding(BuildingType type)
     {
         switch (type)
@@ -40,7 +39,6 @@ public class BuildingPlacer : MonoBehaviour
         }
         Vector3 mousePos = Mouse.current.position.ReadValue();
         buildingGhost = Instantiate(buildingPrefab, Camera.main.ScreenToWorldPoint(mousePos), Quaternion.identity);
-        //(buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = false;
         if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = false;
         Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
         ghostColor.a = 0.5f;
@@ -64,7 +62,6 @@ public class BuildingPlacer : MonoBehaviour
                 ghostColor.a = 1f;
                 buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
                 if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = true;
-                //(buildingGhost.GetComponent<IProducer>() as MonoBehaviour).enabled = true;
                 buildingGhost = null;
             }
         }

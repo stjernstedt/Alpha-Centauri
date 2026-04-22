@@ -5,6 +5,7 @@ public class Mine : MonoBehaviour, IProducer
 {
     ResourceManager resourceManager;
     public int OreAmount = 1;
+    public int powerCost = 10;
     public float Interval = 1f;
 
     WaitForSeconds oreGenerationInterval;
@@ -13,15 +14,22 @@ public class Mine : MonoBehaviour, IProducer
     void Start()
     {
         resourceManager = Managers.Instance.ResourceManager;
+
         Produce();
     }
+
+    void OnEnable()
+    {
+        Debug.Log("Mine enabled, starting production.");
+    }
+
 
     IEnumerator GenerateOre()
     {
         while (true)
         {
             yield return oreGenerationInterval;
-            resourceManager.AddOre(OreAmount);
+            resourceManager.ore += OreAmount;
         }
     }
 

@@ -12,10 +12,12 @@ public class ResearchManager : MonoBehaviour
         UIDocument document = FindAnyObjectByType<UIDocument>();
         VisualElement techTree = document.rootVisualElement.Q<VisualElement>("TechTree");
         researchItems = Resources.LoadAll<ResearchItem>("Tech");
+
         foreach (var item in researchItems)
         {
-            Debug.Log($"Loaded research item: {item.name} with cost {item.techCost}");
             VisualElement techCard = techCardTemplate.Instantiate();
+
+            techCard.RegisterCallback<ClickEvent>(evt => OnTechCardClicked(item));
             techCard.Q<IntegerField>("NameCost").label = item.techName;
             techCard.Q<IntegerField>("NameCost").value = item.techCost;
 
@@ -23,9 +25,8 @@ public class ResearchManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTechCardClicked(ResearchItem item)
     {
-
+        Debug.Log($"Clicked on tech: {item.techName} with cost: {item.techCost}");
     }
 }
