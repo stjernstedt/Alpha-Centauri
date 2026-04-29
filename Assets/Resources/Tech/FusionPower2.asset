@@ -15,3 +15,5 @@ MonoBehaviour:
   id: 50f33812-8a37-4734-a04f-3a4f58d025a8
   techName: Fusion Power 2
   techCost: 20
+  techIcon: {fileID: 2800000, guid: ecfdf1b133e8e4e4e93a80a50ef06078, type: 3}
+  description: 

@@ -15,3 +15,5 @@ MonoBehaviour:
   id: 
   techName: Research Lab
   techCost: 30
+  techIcon: {fileID: 2800000, guid: cd6f09da08cc8cb4a8ffc21a3f8cf0f4, type: 3}
+  description: Faster, Stronger, Better, more tech!

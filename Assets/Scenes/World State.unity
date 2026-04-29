@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 682705115}
   - component: {fileID: 682705114}
   - component: {fileID: 682705117}
-  - component: {fileID: 682705116}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -181,18 +180,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &682705116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682705113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6191582161f544baf1a4e964dba691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonsMenuManager
 --- !u!114 &682705117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,9 +755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5bd5448ebd1df4f82eba4f7b8a310c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldState
-  ore: 0
-  power: 0
-  research: 0
+  <ore>k__BackingField: 0
+  <power>k__BackingField: 0
+  <research>k__BackingField: 0
 --- !u!114 &2043658328
 MonoBehaviour:
   m_ObjectHideFlags: 0

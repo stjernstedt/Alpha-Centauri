@@ -34,7 +34,6 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
-    background-color: rgb(101, 125, 217);
     transition-duration: 250ms;
 }
 
@@ -53,4 +52,20 @@
 
 .button:hover {
     background-color: rgb(119, 200, 217);
+}
+
+.mainColor {
+    background-color: rgb(242, 221, 164);
+}
+
+.secondaryColor {
+    background-color: rgb(182, 166, 202);
+}
+
+.highlightColor {
+    background-color: rgb(110, 144, 117);
+}
+
+.accentColor {
+    background-color: rgb(155, 162, 255);
 }

@@ -15,3 +15,6 @@ MonoBehaviour:
   id: 1
   techName: Fusion Power
   techCost: 10
+  techIcon: {fileID: 2800000, guid: ecfdf1b133e8e4e4e93a80a50ef06078, type: 3}
+  description: Fusion Tech, the future is now! Power solved, happiness forever and
+    so on.

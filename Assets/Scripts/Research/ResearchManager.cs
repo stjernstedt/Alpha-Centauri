@@ -5,12 +5,13 @@ public class ResearchManager : MonoBehaviour
 {
     public VisualTreeAsset techCardTemplate;
     ResearchItem[] researchItems;
+    UIDocument uiDocument;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UIDocument document = FindAnyObjectByType<UIDocument>();
-        VisualElement techTree = document.rootVisualElement.Q<VisualElement>("TechTree");
+        uiDocument = FindAnyObjectByType<UIDocument>();
+        VisualElement techTree = uiDocument.rootVisualElement.Q<VisualElement>("TechTree");
         researchItems = Resources.LoadAll<ResearchItem>("Tech");
 
         foreach (var item in researchItems)
@@ -28,5 +29,10 @@ public class ResearchManager : MonoBehaviour
     private void OnTechCardClicked(ResearchItem item)
     {
         Debug.Log($"Clicked on tech: {item.techName} with cost: {item.techCost}");
+        VisualElement techDetails = uiDocument.rootVisualElement.Q<VisualElement>("TechDetails");
+        //techDetails.Q<Label>("TechName").text = item.techName;
+        //techDetails.Q<Label>("TechCost").text = item.techCost.ToString();
+        techDetails.Q<Label>("TechDescription").text = item.description;
+        techDetails.Q<Image>("TechIcon").style.backgroundImage = item.techIcon;
     }
 }

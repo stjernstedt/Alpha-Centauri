@@ -7,12 +7,11 @@ public class ResearchItem : ScriptableObject
     public string id;
     public string techName;
     public int techCost;
+    public Texture2D techIcon;
+    public string description;
 
     private void OnValidate()
     {
-        if (id == null)
-        {
-            id = Guid.NewGuid().ToString();
-        }
+        id ??= Guid.NewGuid().ToString();
     }
 }

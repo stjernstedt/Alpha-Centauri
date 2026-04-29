@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
         researchButton.clicked += OnResearchButtonClicked;
 
         // Initially hide the building buttons and research panel
-        // setting the scale to 0 causes a bug where the text becomes invisible, so we set it to a very small value instead
+        // setting the scale to 0 causes a bug where the text becomes invisible, so it's set it to a very small value instead
         buildingButtonsPanel = uiDocument.rootVisualElement.Q<VisualElement>("BuildingButtonsPanel");
         buildingButtonsPanel.style.scale = new StyleScale(new Scale(new Vector2(0.0001f, 0.0001f)));
 
@@ -39,14 +39,16 @@ public class UIManager : MonoBehaviour
 
     private void InitBuildingButtons()
     {
+        BuildingPlacer buildingPlacer = FindAnyObjectByType<BuildingPlacer>();
+
         Button mineButton = uiDocument.rootVisualElement.Q<Button>("MineButton");
-        mineButton.clicked += () => FindAnyObjectByType<BuildingPlacer>().PlaceBuilding(BuildingType.Mine);
+        mineButton.clicked += () => buildingPlacer.PlaceBuilding(BuildingType.Mine);
 
         Button powerPlantButton = uiDocument.rootVisualElement.Q<Button>("PowerPlantButton");
-        powerPlantButton.clicked += () => FindAnyObjectByType<BuildingPlacer>().PlaceBuilding(BuildingType.PowerPlant);
+        powerPlantButton.clicked += () => buildingPlacer.PlaceBuilding(BuildingType.PowerPlant);
 
         Button researchLabButton = uiDocument.rootVisualElement.Q<Button>("ResearchLabButton");
-        researchLabButton.clicked += () => FindAnyObjectByType<BuildingPlacer>().PlaceBuilding(BuildingType.ResearchLab);
+        researchLabButton.clicked += () => buildingPlacer.PlaceBuilding(BuildingType.ResearchLab);
     }
 
     private void OnResearchButtonClicked()
