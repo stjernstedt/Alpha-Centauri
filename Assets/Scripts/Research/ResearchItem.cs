@@ -9,6 +9,8 @@ public class ResearchItem : ScriptableObject
     public int techCost;
     public Texture2D techIcon;
     public string description;
+    public bool researched;
+    public string[] prerequisites;
 
     private void OnValidate()
     {

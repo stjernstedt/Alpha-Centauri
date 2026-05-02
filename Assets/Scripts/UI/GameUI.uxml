@@ -4,18 +4,18 @@
         <ui:Button text="Build" name="BuildButton" class="button secondaryColor"/>
         <ui:Button text="Research" name="ResearchButton" class="button secondaryColor"/>
     </ui:VisualElement>
-    <ui:VisualElement name="ResourcesPanel" data-source-type="ResourceManager, Assembly-CSharp" class="panel mainColor" style="flex-grow: 1; position: absolute; height: 40px; width: 622px; top: 10px; left: auto; align-self: center; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); justify-content: flex-start; align-items: center; flex-direction: row; align-content: center;">
-        <ui:IntegerField label="Ore" value="0" focusable="false" name="OreDisplay">
+    <ui:VisualElement name="ResourcesPanel" data-source-type="ResourceManager, Assembly-CSharp" class="panel mainColor" style="flex-grow: 1; position: absolute; height: 40px; width: 626px; top: 10px; left: auto; align-self: center; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); justify-content: flex-start; align-items: center; flex-direction: row; align-content: center;">
+        <ui:IntegerField label="Ore" value="0" focusable="false" name="OreDisplay" style="flex-basis: 33%;">
             <Bindings>
                 <ui:DataBinding property="value" data-source-path="_ore_k__BackingField" binding-mode="ToTarget"/>
             </Bindings>
         </ui:IntegerField>
-        <ui:IntegerField label="Power" value="0" focusable="false" name="PowerDisplay">
+        <ui:IntegerField label="Power" value="0" focusable="false" name="PowerDisplay" style="flex-basis: 33%;">
             <Bindings>
                 <ui:DataBinding property="value" data-source-path="_power_k__BackingField" binding-mode="ToTarget"/>
             </Bindings>
         </ui:IntegerField>
-        <ui:IntegerField label="Research" value="0" focusable="false" name="ResearchDisplay">
+        <ui:IntegerField label="Research" value="0" focusable="false" name="ResearchDisplay" style="flex-basis: 33%;">
             <Bindings>
                 <ui:DataBinding property="value" data-source-path="_research_k__BackingField" binding-mode="ToTarget"/>
             </Bindings>
@@ -31,8 +31,9 @@
             <ui:VisualElement name="TechTree" style="flex-grow: 1; width: auto; height: auto; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; flex-direction: row; flex-wrap: wrap; max-width: initial;"/>
         </ui:ScrollView>
         <ui:VisualElement name="TechDetails" class="panel highlightColor" style="flex-grow: 1; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; align-items: center;">
-            <ui:Image name="TechIcon" style="background-image: resource(&quot;fusion power&quot;); height: auto; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; aspect-ratio: 1; width: 80%; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; flex-grow: 0; flex-shrink: 1; flex-wrap: nowrap;"/>
-            <ui:Label text="Fusion Tech, the future is now!&#10;Power solved, happiness forever and so on." selectable="false" focusable="false" name="TechDescription" class="accentColor" style="white-space: normal; font-size: 18px; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; flex-grow: 1; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; width: 90%; max-width: 100%;"/>
+            <ui:Image name="TechIcon" style="background-image: resource(&quot;fusion power&quot;); height: auto; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; aspect-ratio: 1; width: 80%; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; flex-grow: 0; flex-shrink: 1; flex-wrap: nowrap;"/>
+            <ui:Label text="Fusion Tech, the future is now!&#10;Power solved, happiness forever and so on." selectable="false" focusable="false" name="TechDescription" class="accentColor" style="white-space: normal; font-size: 18px; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; flex-grow: 1; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; width: 90%; max-width: 100%;"/>
+            <ui:Button text="Research" enable-rich-text="true" name="StartResearchButton" class="button accentColor" style="width: 90%; max-width: none; margin-bottom: 10px;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
