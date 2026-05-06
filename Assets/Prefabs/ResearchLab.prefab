@@ -125,5 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64aac029e9f19c46b626ca492ec0f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResearchLab
-  ResearchAmount: 1
-  Interval: 1
+  ResearchAmount: 10

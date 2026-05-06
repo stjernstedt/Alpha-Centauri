@@ -1,13 +1,9 @@
-using System.Collections;
 using UnityEngine;
 
 public class ResearchLab : MonoBehaviour, IProducer
 {
     ResourceManager resourceManager;
-    public int ResearchAmount = 1;
-    public float Interval = 1f;
-
-    WaitForSeconds researchGenerationInterval;
+    public int ResearchAmount = 10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,19 +12,9 @@ public class ResearchLab : MonoBehaviour, IProducer
         Produce();
     }
 
-    IEnumerator GenerateResearch()
-    {
-        while (true)
-        {
-            yield return researchGenerationInterval;
-            resourceManager.research += ResearchAmount;
-        }
-    }
-
     public void Produce()
     {
-        researchGenerationInterval = new WaitForSeconds(Interval);
-        StartCoroutine(GenerateResearch());
+        resourceManager.research += ResearchAmount;
     }
 
 }

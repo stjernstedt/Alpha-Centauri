@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8633d5217e854bb4fb787ae13486b12f, type: 3}
   m_Name: ResearchLab
   m_EditorClassIdentifier: Assembly-CSharp::ResearchItem
-  id: 
+  id: 3
   techName: Research Lab
   techCost: 30
   techIcon: {fileID: 2800000, guid: cd6f09da08cc8cb4a8ffc21a3f8cf0f4, type: 3}
   description: Faster, Stronger, Better, more tech!
+  researched: 0
+  prerequisites: []

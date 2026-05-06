@@ -15,3 +15,8 @@ MonoBehaviour:
   id: e3556db1-181a-424e-a413-5781c0db485c
   techName: Mining Lasers 3
   techCost: 60
+  techIcon: {fileID: 0}
+  description: 
+  researched: 0
+  prerequisites:
+  - 51492d33-982f-4115-904e-dbfd2405237a

@@ -1,20 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class ResearchManager : MonoBehaviour
 {
+    ResourceManager resourceManager;
     public VisualTreeAsset techCardTemplate;
     UIDocument uiDocument;
     ResearchItem selectedTech;
     Dictionary<string, ResearchItem> researchItems = new Dictionary<string, ResearchItem>();
 
+    int researchLeft;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        resourceManager = Managers.Instance.ResourceManager;
         Init();
         PopulateTechTree();
 
@@ -28,7 +30,7 @@ public class ResearchManager : MonoBehaviour
         researchItems = Resources.LoadAll<ResearchItem>("Tech").ToDictionary(item => item.id, item => item);
         foreach (var item in researchItems.Values)
         {
-            item.researched = false; // Reset research status on game start
+            item.researched = false; // Reset research status on game start, change to load status from save file later
         }
     }
 
@@ -61,25 +63,32 @@ public class ResearchManager : MonoBehaviour
 
     private void StartResearch()
     {
-        if (selectedTech != null && Managers.Instance.ResourceManager.research >= selectedTech.techCost)
+        if (selectedTech != null)
         {
             Debug.Log($"Starting research on: {selectedTech.techName}");
-            Managers.Instance.ResourceManager.research -= selectedTech.techCost;
+            researchLeft = selectedTech.techCost;
             Research();
-            // Implement research logic here (e.g., deduct resources, start timers, etc.)
         }
         else
         {
-            Debug.Log("No tech selected for research or insufficient resources.");
+            Debug.Log("No tech selected for research.");
         }
     }
 
     async void Research()
     {
-        await Task.Delay(2000);
-
-        Debug.Log($"Research completed for: {selectedTech.techName}");
-        selectedTech.researched = true;
-        PopulateTechTree();
+        researchLeft -= resourceManager.research;
+        if (researchLeft <= 0)
+        {
+            Debug.Log($"Research completed for: {selectedTech.techName}");
+            selectedTech.researched = true;
+            PopulateTechTree();
+        }
+        else
+        {
+            Debug.Log($"Research in progress for: {selectedTech.techName}, research left: {researchLeft}");
+            await Awaitable.WaitForSecondsAsync(1f);
+            Research();
+        }
     }
 }

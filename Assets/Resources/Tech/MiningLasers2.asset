@@ -17,3 +17,6 @@ MonoBehaviour:
   techCost: 40
   techIcon: {fileID: 2800000, guid: 718b2d69e1ff73346b9463581fad88af, type: 3}
   description: 
+  researched: 0
+  prerequisites:
+  - 2

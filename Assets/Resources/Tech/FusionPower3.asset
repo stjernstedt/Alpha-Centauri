@@ -15,3 +15,8 @@ MonoBehaviour:
   id: 3558bce9-de00-4b30-9864-fe872803b495
   techName: Fusion Power 3
   techCost: 30
+  techIcon: {fileID: 0}
+  description: 
+  researched: 0
+  prerequisites:
+  - 50f33812-8a37-4734-a04f-3a4f58d025a8
