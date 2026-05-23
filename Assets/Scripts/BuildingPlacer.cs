@@ -39,6 +39,7 @@ public class BuildingPlacer : MonoBehaviour
         }
         Vector3 mousePos = Mouse.current.position.ReadValue();
         buildingGhost = Instantiate(buildingPrefab, Camera.main.ScreenToWorldPoint(mousePos), Quaternion.identity);
+        buildingGhost.GetComponent<Collider>().enabled = false;
         if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = false;
         Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
         ghostColor.a = 0.5f;
@@ -52,7 +53,8 @@ public class BuildingPlacer : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Vector3Int gridPos = Vector3Int.RoundToInt(hit.point);
+                Vector3 gridPos = Vector3Int.RoundToInt(hit.point);
+                gridPos.y += 0.5f;
                 buildingGhost.transform.position = gridPos;
             }
 
@@ -62,6 +64,7 @@ public class BuildingPlacer : MonoBehaviour
                 ghostColor.a = 1f;
                 buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
                 if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = true;
+                buildingGhost.GetComponent<Collider>().enabled = true;
                 buildingGhost = null;
             }
         }

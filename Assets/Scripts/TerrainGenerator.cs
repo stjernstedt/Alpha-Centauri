@@ -6,12 +6,12 @@ public class TerrainGenerator : MonoBehaviour
     // Maximum size up to 255 for 16-bit index buffers, but we can use 32-bit index buffers in Unity to go beyond that limit if needed.
     public int width;
     public int height;
-    public float perlinHighlandsThreshold = 0.2f;
-    public float perlinMountainsThreshold = 0.6f;
-    public float perlinScale = 0.3f;
-    public float perlinMagnitude = 2f;
-    public float perlinOffsetX = 0f;
-    public float perlinOffsetZ = 0f;
+    public float perlinHighlandsThreshold = 0.5f;
+    public float perlinMountainsThreshold = 0.7f;
+    public float perlinScale = 6f;
+    public float perlinMagnitude = 1f;
+    float perlinOffsetX = 0f;
+    float perlinOffsetZ = 0f;
 
     Vector3[] vertices;
     int[] triangles;
@@ -23,13 +23,16 @@ public class TerrainGenerator : MonoBehaviour
 
         CreateMesh();
         UpdateMesh();
-
+        GetComponent<MeshCollider>().sharedMesh = mesh;
     }
 
     private void CreateMesh()
     {
         vertices = new Vector3[(width + 1) * (height + 1)];
         triangles = new int[width * height * 6];
+
+        perlinOffsetX = Random.Range(0, 100);
+        perlinOffsetZ = Random.Range(0, 100);
 
         for (int i = 0, z = 0; z <= height; z++)
         {
@@ -42,8 +45,8 @@ public class TerrainGenerator : MonoBehaviour
                 float y = 0;
 
                 if (perlinY < perlinHighlandsThreshold) y = 0;
-                if (perlinY > perlinHighlandsThreshold && perlinY < perlinMountainsThreshold) y = 2f;
-                if (perlinY > perlinMountainsThreshold) y = 4f;
+                if (perlinY > perlinHighlandsThreshold && perlinY < perlinMountainsThreshold) y = 1f;
+                if (perlinY > perlinMountainsThreshold) y = 2f;
 
                 vertices[i] = new Vector3(x, y, z);
                 i++;
