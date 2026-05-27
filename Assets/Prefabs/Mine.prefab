@@ -125,5 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a832deb225273f541ba4a7ac73729256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mine
+  <ghostMaterial>k__BackingField: {fileID: 2100000, guid: 5e1d1695fcc7f244a852301f1c325ccb, type: 2}
   OreAmount: 1
+  powerCost: 10
   Interval: 1

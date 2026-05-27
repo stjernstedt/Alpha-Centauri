@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class PowerPlant : MonoBehaviour, IProducer
+public class PowerPlant : MonoBehaviour, IProducer, IPlacable
 {
+    [field: SerializeField] public Material ghostMaterial { get; private set; }
     ResourceManager resourceManager;
     public int PowerAmount = 10;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

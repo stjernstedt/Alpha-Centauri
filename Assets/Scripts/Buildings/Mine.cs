@@ -1,14 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class Mine : MonoBehaviour, IProducer
+public class Mine : MonoBehaviour, IProducer, IPlacable
 {
+
+    [field: SerializeField] public Material ghostMaterial { get; private set; }
     ResourceManager resourceManager;
     public int OreAmount = 1;
     public int powerCost = 10;
     public float Interval = 1f;
 
     WaitForSeconds oreGenerationInterval;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

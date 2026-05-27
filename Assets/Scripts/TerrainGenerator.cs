@@ -15,6 +15,7 @@ public class TerrainGenerator : MonoBehaviour
 
     Vector3[] vertices;
     int[] triangles;
+    Vector2[] uvs;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,10 +31,12 @@ public class TerrainGenerator : MonoBehaviour
     {
         vertices = new Vector3[(width + 1) * (height + 1)];
         triangles = new int[width * height * 6];
+        uvs = new Vector2[vertices.Length];
 
         perlinOffsetX = Random.Range(0, 100);
         perlinOffsetZ = Random.Range(0, 100);
 
+        // Creating vertices
         for (int i = 0, z = 0; z <= height; z++)
         {
             for (int x = 0; x <= width; x++)
@@ -45,10 +48,11 @@ public class TerrainGenerator : MonoBehaviour
                 float y = 0;
 
                 if (perlinY < perlinHighlandsThreshold) y = 0;
-                if (perlinY > perlinHighlandsThreshold && perlinY < perlinMountainsThreshold) y = 1f;
-                if (perlinY > perlinMountainsThreshold) y = 2f;
+                if (perlinY > perlinHighlandsThreshold && perlinY < perlinMountainsThreshold) y = 3f;
+                if (perlinY > perlinMountainsThreshold) y = 6f;
 
                 vertices[i] = new Vector3(x, y, z);
+                uvs[i] = new Vector2((float)x / width, (float)z / height);
                 i++;
             }
         }
@@ -56,6 +60,7 @@ public class TerrainGenerator : MonoBehaviour
         int vert = 0;
         int tris = 0;
 
+        // Creating triangles
         for (int z = 0; z < height; z++)
         {
             for (int x = 0; x < width; x++)
@@ -74,11 +79,30 @@ public class TerrainGenerator : MonoBehaviour
         }
     }
 
+    private void GenerateTexture()
+    {
+        Texture2D texture = new Texture2D(width, height);
+        for (int z = 0; z < height; z++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                Color color = new Color(0, Random.Range(0.7f, 1f), 0);
+                texture.SetPixel(x, z, color);
+            }
+        }
+        //texture.filterMode = FilterMode.Point;
+        texture.Apply();
+
+        GetComponent<MeshRenderer>().material.mainTexture = texture;
+    }
+
     private void UpdateMesh()
     {
         mesh.Clear();
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+        mesh.uv = uvs;
+        GenerateTexture();
         mesh.RecalculateNormals();
     }
 

@@ -8,6 +8,10 @@ public class BuildingPlacer : MonoBehaviour
     [SerializeField] GameObject researchLabPrefab;
     GameObject buildingPrefab;
     GameObject buildingGhost = null;
+
+    Color originalColor;
+    Material originalMaterial;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,9 +45,16 @@ public class BuildingPlacer : MonoBehaviour
         buildingGhost = Instantiate(buildingPrefab, Camera.main.ScreenToWorldPoint(mousePos), Quaternion.identity);
         buildingGhost.GetComponent<Collider>().enabled = false;
         if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = false;
-        Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
-        ghostColor.a = 0.5f;
-        buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
+
+        // possible remove these 2 lines
+        originalMaterial = buildingGhost.GetComponent<Renderer>().material;
+        Material ghostMaterial = buildingGhost.GetComponent<IPlacable>().ghostMaterial;
+
+        buildingGhost.GetComponent<Renderer>().material = ghostMaterial;
+        //originalColor = buildingGhost.GetComponent<Renderer>().material.color;
+        //Color ghostColor = originalColor;
+        //ghostColor.a = 0.5f;
+        //buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
     }
 
     void UpdateGhostPosition()
@@ -60,9 +71,11 @@ public class BuildingPlacer : MonoBehaviour
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
-                ghostColor.a = 1f;
-                buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
+                //Color ghostColor = buildingGhost.GetComponent<Renderer>().material.color;
+                //ghostColor.a = 1f;
+                //buildingGhost.GetComponent<Renderer>().material.color = ghostColor;
+                //buildingGhost.GetComponent<Renderer>().material.color = originalColor;
+                buildingGhost.GetComponent<Renderer>().material = originalMaterial;
                 if (buildingGhost.GetComponent<IProducer>() is MonoBehaviour mb) mb.enabled = true;
                 buildingGhost.GetComponent<Collider>().enabled = true;
                 buildingGhost = null;

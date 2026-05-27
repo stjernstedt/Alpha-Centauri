@@ -169,7 +169,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f92c2a718416d254d9bacb6f7337ef39, type: 2}
+  - {fileID: 2100000, guid: d0464494637b1d943b0e04cf54a34172, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
-  m_UsePipelineSettings: 1
+  m_UsePipelineSettings: 0
   m_AdditionalLightsShadowResolutionTier: 2
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
@@ -840,7 +840,6 @@ GameObject:
   - component: {fileID: 2043658327}
   - component: {fileID: 2043658328}
   - component: {fileID: 2043658329}
-  - component: {fileID: 2043658330}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -919,18 +918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResearchManager
   techCardTemplate: {fileID: 9197481963319205126, guid: c0ab4d8094d22464ab00ebb04216e893, type: 3}
---- !u!114 &2043658330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043658324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88bfffd814ae771459c0a228a787db64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1001 &4685783401920661203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -939,13 +926,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486765023}
     m_Modifications:
+    - target: {fileID: 548371938003199476, guid: 7d1b4e8ebb20fac45ac1bd201dc99e8a, type: 3}
+      propertyPath: <ghostMaterial>k__BackingField
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2554060346480759673, guid: 7d1b4e8ebb20fac45ac1bd201dc99e8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2554060346480759673, guid: 7d1b4e8ebb20fac45ac1bd201dc99e8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2554060346480759673, guid: 7d1b4e8ebb20fac45ac1bd201dc99e8a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1006,7 +997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5778040753830782678, guid: c2ad10ab689fc27469182a0d2ec0d9fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5778040753830782678, guid: c2ad10ab689fc27469182a0d2ec0d9fc, type: 3}
       propertyPath: m_LocalPosition.z

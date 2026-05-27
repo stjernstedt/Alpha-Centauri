@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe89c4ab0ce1d94cbadb1bd16a5e52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerPlant
+  <ghostMaterial>k__BackingField: {fileID: 2100000, guid: b62dc02537e88204381a9aea5b9b98af, type: 2}
   PowerAmount: 10

@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64aac029e9f19c46b626ca492ec0f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResearchLab
+  <ghostMaterial>k__BackingField: {fileID: 2100000, guid: 11dd9c92c5c636541b4d42e1a5c8eaf9, type: 2}
   ResearchAmount: 10
